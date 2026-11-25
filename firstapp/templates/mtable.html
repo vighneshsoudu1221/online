@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background-color: aqua;
+        color: aliceblue;
+        text-align: center;
+        height: 12vh;
+      }
+      main .box {
+        position: absolute;
+        width: 50vw;
+        height: 50vh;
+        top: 20vh;
+        left: 35vw;
+      }
+    </style>
+  </head>
+  <body>
+    <header>vcube</header>
+    <main>
+      <div class="box">
+        <form action="" method="POST">
+          {% csrf_token%}
+          <input type="text" name="t1" />
+          <input type="submit" value="generate" />
+        </form>
+        {% for i in result %}
+        <p>{{i}}</p>
+        {% endfor%}
+      </div>
+    </main>
+  </body>
+</html>

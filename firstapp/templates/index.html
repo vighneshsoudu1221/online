@@ -2,13 +2,32 @@
 <html>
   <head>
     <style>
-      h1 {
+      * {
+        background-color: azure;
+        margin: 0;
+      }
+
+      header {
+        color: white;
+        background-color: aqua;
+        width: 100vw;
+        height: 5vh;
         text-align: center;
-        color: aqua;
       }
     </style>
   </head>
+
   <body>
-    <h1>well come to django!!!</h1>
+    <header>registration from</header>
+    <main>
+      <form type="submit" method="post">
+         {% csrf_token %}
+        <main>
+          <label> <input type="text" /> </label><br /><br />
+          <label> <input type="text" /> </label><br /><br />
+          <button>add</button>      
+        </main>
+      </form>
+    </main>
   </body>
 </html>

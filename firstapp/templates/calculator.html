@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background-color: aqua;
+        color: aliceblue;
+        text-align: center;
+        height: 12vh;
+      }
+      main .box {
+        position: absolute;
+        width: 50vw;
+        height: 50vh;
+        top: 20vh;
+        left: 35vw;
+      }
+    </style>
+  </head>
+  <body>
+    <header>calculator</header>
+    <main>
+      <div class="box">
+        <form action="" method="POST" class="submit">
+          {%csrf_token%}
+          <label>value1 <input type="text" name="t1" id="t1" /> </label><br />
+          <br />
+          <label
+            >value2
+            <input type="text" name="t2" id="t2" />
+          </label>
+          <br />
+          <br />
+          <input type="submit" value="Add" name="Add" />
+          <input type="submit" value="Mul" name="Mul" />
+          <input type="submit" value="sub" name="sub" />
+          <input type="submit" value="div" name="div" />
+        </form>
+        {%if action == "addition"%}
+        <p style="color: aqua">{{action}} {{result}}</p>
+        {%elif action == "multiplication"%}
+        <p style="color: red">{{action}} {{result}}</p>
+        {%elif action == "substraction"%}
+        <p style="color: blue">{{action}} {{result}}</p>
+        {%elif action == "division"%}
+        <p style="color: blueviolet">{{action}} {{result}}</p>
+        {% endif %}
+      </div>
+    </main>
+    <script>
+      document.querySelector(".submit").addEventListener("submit", send);
+      function send(event) {
+        let v1, v2;
+        v1 = parseInt(document.querySelector("#t1").value);
+        v2 = parseInt(document.querySelector("#t2").value);
+        if (v1 < 0 || v2 < 0) {
+          event.preventDefault();
+        }
+      }
+    </script>
+  </body>
+</html>
